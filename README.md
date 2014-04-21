@@ -1,11 +1,13 @@
 Velocity集成解决方案设计文档
 =========================
 
-此方案主要针对服务端为JAVA + Velocity的环境，大部分设计借鉴了[fis-plus](https://github.com/fex-team/fis-plus)（针对php+smarty3）的实现思路。
+针对服务端为JAVA + Velocity的环境，大部分设计借鉴了[fis-plus](https://github.com/fex-team/fis-plus)（针对php+smarty3）的实现思路。
 
 ## 目标
 
-此解决方案主要实现以下几个目标。
+同[fis-plus](https://github.com/fex-team/fis-plus)一样，我们的目标是提出一种开发方案，提高开发人员生产力，同时自动解决产品性能问题。
+
+具体拆分出以下几个目标。
 
 * 模块化机制（widget）。
 
