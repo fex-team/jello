@@ -23,7 +23,7 @@ Velocity集成解决方案设计文档
 
 通过添加以下几种`directives`来实现。
 
-1. html
+1. ### html
 
   代替`<html>`标签，设置页面运行的前端框架，以及控制整体页面输出。
 
@@ -37,25 +37,25 @@ Velocity集成解决方案设计文档
   ...
   #end
   ```
-2. head
+2. ### head
 
   代替`<head>`标签，控制CSS资源加载输出。
 
-  语法: `#html body #end`
+  语法: `#html([$attrs]) body #end`
 
   ```velocity
   #head
   <meta charset="utf-8"/>
   #end
   ```
-3. body
+3. ### body
 
   代替`<body>`标签，控制JS资源加载输出。
 
-  语法: `#body body #end`
+  语法: `#body([$attrs]) body #end`
 
   ```velocity
-  #html ("home:static/lib/mod.js")
+  #html("home:static/lib/mod.js")
     #head
     <meta charset="utf-8"/>
     #end
@@ -65,14 +65,14 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
-4. script
+4. ### script
 
   代替`<script>`标签，收集使用JS组件的代码块，控制输出至页面底部。
 
-  语法: `#script body #end`
+  语法: `#script([$attrs]) body #end`
 
   ```velocity
-  #html ("home:static/lib/mod.js")
+  #html("home:static/lib/mod.js")
     #head
     <meta charset="utf-8"/>
 
@@ -89,6 +89,56 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
+5. ### require
+
+  通过静态资源管理框架加载静态资源。
+
+  语法: `#require( $uri )`
+
+  ```velocity
+  #html("home:static/lib/mod.js")
+    #head
+    <meta charset="utf-8"/>
+
+      ## 通过script插件收集加载组件化JS代码
+      #script
+      require.async("home:static/ui/B/B.js");
+
+      console.log('here');
+      #end
+    #end
+
+    #body
+      #require("home:static/index/index.css")
+    #end
+  #end
+  ```
+6. ### widget
+
+ 调用模板组件，渲染输出模板片段。
+
+ 语法: `#widget( $uri )`
+
+ ```velocity
+  #html("home:static/lib/mod.js")
+    #head
+    <meta charset="utf-8"/>
+
+      ## 通过script插件收集加载组件化JS代码
+      #script
+      require.async("home:static/ui/B/B.js");
+
+      console.log('here');
+      #end
+    #end
+
+    #body
+      #require("home:static/index/index.css")
+      #widget("home:widget/A/A.tpl")
+    #end
+  #end
+  ```
+
 
 ## 与后端整合
 
