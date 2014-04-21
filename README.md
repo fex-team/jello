@@ -27,7 +27,7 @@ Velocity集成解决方案设计文档
 
   代替<html>标签，设置页面运行的前端框架，以及控制整体页面输出。
 
-  语法: `#html ( $framework[, $attrs] )body#end`
+  语法: `#html ( [$framework[, $attrs]] )body #end`
 
   ```velocity
 
@@ -35,6 +35,58 @@ Velocity集成解决方案设计文档
   ...
   body content.
   ...
+  #end
+  ```
+2. head
+
+  代替<head>标签，控制CSS资源加载输出。
+
+  语法: `#html body #end`
+
+  ```velocity
+  #head
+  <meta charset="utf-8"/>
+  #end
+  ```
+3. body
+
+  代替<body>标签，控制JS资源加载输出。
+
+  语法: `#body body #end`
+
+  ```velocity
+  #html ("home:static/lib/mod.js")
+    #head
+    <meta charset="utf-8"/>
+    #end
+
+    #body
+        ...
+    #end
+  #end
+  ```
+4. script
+
+  代替<script>标签，收集使用JS组件的代码块，控制输出至页面底部。
+
+  语法: `#script body #end`
+
+  ```velocity
+  #html ("home:static/lib/mod.js")
+    #head
+    <meta charset="utf-8"/>
+
+      ## 通过script插件收集加载组件化JS代码
+      #script
+      require.async("home:static/ui/B/B.js");
+
+      console.log('here');
+      #end
+    #end
+
+    #body
+        ...
+    #end
   #end
   ```
 
