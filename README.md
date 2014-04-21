@@ -7,7 +7,7 @@ Velocity集成解决方案设计文档
 
 同[fis-plus](https://github.com/fex-team/fis-plus)一样，我们的目标是提出一种开发方案，提高开发人员生产力，同时自动解决产品性能问题。
 
-目标细分。
+细分：
 
 * **模块化机制（widget）**
 
@@ -15,9 +15,27 @@ Velocity集成解决方案设计文档
 * **控制css头部输出，js页尾输出**
 
   提供一种js/css能就近添加，但是能保证css头部输出和js底部输出的机制。
+* **资源定位**
+
+  提供便利的资源引入功能。
 
 ## 实现
 
+通过添加以下几种`directives`来实现。
+
+1. html
+
+  代替<html>标签，设置页面运行的前端框架，以及控制整体页面输出。
+  第一个参数用来指定framework.
+
+  ```html
+
+  #html( "fis-site:static/js/mod.js" )
+  ...
+  body content.
+  ...
+  #end
+  ```
 
 ## 与后端整合
 
