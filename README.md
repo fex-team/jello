@@ -25,7 +25,7 @@ Velocity集成解决方案设计文档
 
 1. html
 
-  代替<html>标签，设置页面运行的前端框架，以及控制整体页面输出。
+  代替`<html>`标签，设置页面运行的前端框架，以及控制整体页面输出。
 
   语法: `#html ( [$framework[, $attrs]] )body #end`
 
@@ -39,7 +39,7 @@ Velocity集成解决方案设计文档
   ```
 2. head
 
-  代替<head>标签，控制CSS资源加载输出。
+  代替`<head>`标签，控制CSS资源加载输出。
 
   语法: `#html body #end`
 
@@ -50,7 +50,7 @@ Velocity集成解决方案设计文档
   ```
 3. body
 
-  代替<body>标签，控制JS资源加载输出。
+  代替`<body>`标签，控制JS资源加载输出。
 
   语法: `#body body #end`
 
@@ -67,7 +67,7 @@ Velocity集成解决方案设计文档
   ```
 4. script
 
-  代替<script>标签，收集使用JS组件的代码块，控制输出至页面底部。
+  代替`<script>`标签，收集使用JS组件的代码块，控制输出至页面底部。
 
   语法: `#script body #end`
 
