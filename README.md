@@ -26,7 +26,8 @@ Velocity集成解决方案设计文档
 1. html
 
   代替<html>标签，设置页面运行的前端框架，以及控制整体页面输出。
-  第一个参数用来指定framework.
+
+  语法: `#html ( $framework[, $attrs] )body#end`
 
   ```velocity
 
