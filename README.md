@@ -180,6 +180,7 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
+
 ## layout机制
 
 fis-plus因为是使用smarty，模板引擎支持模板继承。所以可以创建一个公用的layout.tpl，其他页面tpl直接扩展layout.tpl。
