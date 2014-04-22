@@ -21,7 +21,7 @@ Velocity集成解决方案设计文档
 
 ## 实现
 
-需要创建以下几种`directives`，widget用来实现模块化，通过script、style、require、widget等收集js/css内容，通过head/body来控制js/css输出位置。
+需要创建以下几种`directives`。widget用来实现模块化。script、style、require、widget等用来收集js/css内容，通过head/body来控制js/css输出位置。
 
 1. ### html
 
