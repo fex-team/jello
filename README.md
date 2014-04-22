@@ -213,6 +213,9 @@ test/xxx.(jsp|json)
 2. page
 3. test
 4. widget
+5. static
+
+细节待定！
 
 ## 与后端整合
 提供fis-velocity-tools.jar，rd将起加入classpath即可。
