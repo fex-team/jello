@@ -37,7 +37,7 @@ Velocity集成解决方案设计文档
   ...
   #end
   ```
-2. ### head
+1. ### head
 
   代替`<head>`标签，控制CSS资源加载输出。
 
@@ -48,7 +48,7 @@ Velocity集成解决方案设计文档
   <meta charset="utf-8"/>
   #end
   ```
-3. ### body
+1. ### body
 
   代替`<body>`标签，控制JS资源加载输出。
 
@@ -65,7 +65,7 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
-4. ### script
+1. ### script
 
   代替`<script>`标签，收集使用JS组件的代码块，控制输出至页面底部。
 
@@ -89,7 +89,32 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
-5. ### require
+1. ### style
+
+  代替`<style>`标签，收集使用CSS组件的代码块，控制输出至页面头部。
+
+  语法: `#style([$attrs]) body #end`
+
+  ```velocity
+  #html("home:static/lib/mod.js")
+    #head
+    <meta charset="utf-8"/>
+
+      #style
+      @import url(xxx.css);
+
+      body {
+          color: #fff;
+      }
+      #end
+    #end
+
+    #body
+        ...
+    #end
+  #end
+  ```
+1. ### require
 
   通过静态资源管理框架加载静态资源。
 
@@ -113,7 +138,7 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
-6. ### widget
+1. ### widget
 
  调用模板组件，渲染输出模板片段。
 
@@ -135,6 +160,23 @@ Velocity集成解决方案设计文档
     #body
       #require("home:static/index/index.css")
       #widget("home:widget/A/A.tpl")
+    #end
+  #end
+  ```
+1. ### uri
+
+  定位线上资源，允许跨模块(project)。
+
+ 语法: `#uri( $uri )`
+
+ ```velocity
+  #html("home:static/lib/mod.js")
+    #head
+    <meta charset="utf-8"/>
+    #end
+
+    #body
+        #uri("home:static/css/bootstrap.css")
     #end
   #end
   ```
