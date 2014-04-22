@@ -180,7 +180,34 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
+## layout机制
 
+fis-plus因为是使用smarty，模板引擎支持模板继承。所以可以创建一个公用的layout.tpl，其他页面tpl直接扩展layout.tpl。
+
+velocity不支持此功能。目前采用的方案暂定为。将所有layout放到layout目录，page中可以通过`#set( $layout="print.vm")`来指定layout。
+目前只支持内容区填充，不支持block区域填充。
+
+```
+├── layout
+│   ├── default.vm
+│   └── print.vm
+├── page
+│   ├── index.vm
+└   └── detail.vm
+```
+
+## 数据源
+page/xxx.vm 的数据源通过test/page/xxx.(json|jsp)提供。
+
+## 页面模拟
+test/xxx.(jsp|json)
 
 ## 与后端整合
+提供fis-velocity-tools.jar，rd将起加入classpath即可。
+
+设置velocity properties，将所有directive添加上。
+
+```
+userdirective=com.baidu.fis.tools.velocity.directive.Html,com.baidu.fis.tools.velocity.directive.Head...
+```
 
