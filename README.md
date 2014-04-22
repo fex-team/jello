@@ -203,7 +203,7 @@ page/xxx.vm 的数据源通过test/page/xxx.(json|jsp)提供。
 ## 页面模拟
 test/xxx.(jsp|json)
 
-同样，通过`server.conf`来配置。
+同样，通过`server.conf`来配置。[快速通道](http://fis.baidu.com/userdoc/fis/%E6%9C%AC%E5%9C%B0%E6%A8%A1%E6%8B%9F%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%E5%8A%9F%E8%83%BD)
 
 ## 源目录与输出目录规则
 
