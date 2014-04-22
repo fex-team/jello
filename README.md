@@ -202,6 +202,14 @@ page/xxx.vm 的数据源通过test/page/xxx.(json|jsp)提供。
 ## 页面模拟
 test/xxx.(jsp|json)
 
+## 源目录与输出目录规则
+
+几个需要保持不变的目录。
+1. WEB-INFO
+2. page
+3. test
+4. widget
+
 ## 与后端整合
 提供fis-velocity-tools.jar，rd将起加入classpath即可。
 
