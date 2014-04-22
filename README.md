@@ -23,7 +23,7 @@ Velocity集成解决方案设计文档
 
 需要创建以下几种`directives`。widget用来实现模块化。script、style、require、widget等用来收集js/css内容，通过head/body来控制js/css输出位置。
 
-1. ### html
+1. **html**
 
   代替`<html>`标签，设置页面运行的前端框架，以及控制整体页面输出。
 
@@ -37,7 +37,7 @@ Velocity集成解决方案设计文档
   ...
   #end
   ```
-1. ### head
+1. **head**
 
   代替`<head>`标签，控制CSS资源加载输出。
 
@@ -48,7 +48,7 @@ Velocity集成解决方案设计文档
   <meta charset="utf-8"/>
   #end
   ```
-1. ### body
+1. **body**
 
   代替`<body>`标签，控制JS资源加载输出。
 
@@ -65,7 +65,7 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
-1. ### script
+1. **script**
 
   代替`<script>`标签，收集使用JS组件的代码块，控制输出至页面底部。
 
@@ -89,7 +89,7 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
-1. ### style
+1. **style**
 
   代替`<style>`标签，收集使用CSS组件的代码块，控制输出至页面头部。
 
@@ -114,7 +114,7 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
-1. ### require
+1. **require**
 
   通过静态资源管理框架加载静态资源。
 
@@ -138,7 +138,7 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
-1. ### widget
+1. **widget**
 
  调用模板组件，渲染输出模板片段。
 
@@ -163,7 +163,7 @@ Velocity集成解决方案设计文档
     #end
   #end
   ```
-1. ### uri
+1. **uri**
 
   定位线上资源，允许跨模块(project)。
 
