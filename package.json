@@ -1,0 +1,37 @@
+{
+  "name": "fis-velocity",
+  "version": "0.0.1",
+  "description": "Front End Integrated Solution for J2EE Velocity.",
+  "main": "fis-velocity.js",
+  "bin": {
+    "fis-velocity": "bin/fis-velocity",
+    "fisv": "bin/fis-velocity"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2betop/fis-velocity.git"
+  },
+  "keywords": [
+    "fis",
+    "velocity"
+  ],
+  "author": "2betop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2betop/fis-velocity/issues"
+  },
+  "homepage": "https://github.com/2betop/fis-velocity",
+  "dependencies": {
+    "fis": "~1.7.8",
+    "fis-parser-po": "0.0.1",
+    "fis-parser-less": "0.0.9",
+    "fis-preprocessor-extVelocity": "https://codeload.github.com/lily-zhangying/fis-preprocessor-extVelocity/legacy.tar.gz/master",
+    "fisv-postprocessor-require-async": "https://codeload.github.com/lily-zhangying/fisv-postprocessor-require-async/legacy.tar.gz/master",
+    "fis-parser-sass": "~0.1.1",
+    "fis-postprocessor-jswrapper": "0.0.8",
+    "fis-optimizer-html-compress": "0.0.7"
+  }
+}
