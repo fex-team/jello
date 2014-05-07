@@ -25,16 +25,16 @@ fis.config.merge({
         },
 
         preprocessor: {
-            tpl: 'extVelocity'
+            vm: 'extVelocity'
         },
 
         postprocessor: {
-            tpl: 'velocity-require-async',
+            vm: 'velocity-require-async',
             js: 'jswrapper, velocity-require-async'
         },
 
         optimizer : {
-            tpl : 'html-compress'
+            vm : 'html-compress'
         }
     },
 
