@@ -29,7 +29,7 @@
     "fis-parser-po": "0.0.1",
     "fis-parser-less": "0.0.9",
     "fis-preprocessor-extVelocity": "https://codeload.github.com/lily-zhangying/fis-preprocessor-extVelocity/legacy.tar.gz/master",
-    "fisv-postprocessor-require-async": "https://codeload.github.com/lily-zhangying/fisv-postprocessor-require-async/legacy.tar.gz/master",
+    "fis-postprocessor-velocity-require-async": "https://codeload.github.com/lily-zhangying/fis-postprocessor-velocity-require-async/legacy.tar.gz/master",
     "fis-parser-sass": "~0.1.1",
     "fis-postprocessor-jswrapper": "0.0.8",
     "fis-optimizer-html-compress": "0.0.7"

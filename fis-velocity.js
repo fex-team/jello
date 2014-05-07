@@ -29,8 +29,8 @@ fis.config.merge({
         },
 
         postprocessor: {
-            tpl: 'require-async',
-            js: 'jswrapper, require-async'
+            tpl: 'velocity-require-async',
+            js: 'jswrapper, velocity-require-async'
         },
 
         optimizer : {
