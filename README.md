@@ -44,7 +44,7 @@ Velocity集成解决方案设计文档
   语法: `#html([$attrs]) body #end`
 
   ```velocity
-  #head
+  #head()
   <meta charset="utf-8"/>
   #end
   ```
@@ -56,11 +56,11 @@ Velocity集成解决方案设计文档
 
   ```velocity
   #html("home:static/lib/mod.js")
-    #head
+    #head()
     <meta charset="utf-8"/>
     #end
 
-    #body
+    #body()
         ...
     #end
   #end
@@ -73,18 +73,18 @@ Velocity集成解决方案设计文档
 
   ```velocity
   #html("home:static/lib/mod.js")
-    #head
+    #head()
     <meta charset="utf-8"/>
 
       ## 通过script插件收集加载组件化JS代码
-      #script
+      #script()
       require.async("home:static/ui/B/B.js");
 
       console.log('here');
       #end
     #end
 
-    #body
+    #body()
         ...
     #end
   #end
@@ -100,7 +100,7 @@ Velocity集成解决方案设计文档
     #head
     <meta charset="utf-8"/>
 
-      #style
+      #style()
       @import url(xxx.css);
 
       body {
@@ -122,18 +122,18 @@ Velocity集成解决方案设计文档
 
   ```velocity
   #html("home:static/lib/mod.js")
-    #head
+    #head()
     <meta charset="utf-8"/>
 
       ## 通过script插件收集加载组件化JS代码
-      #script
+      #script()
       require.async("home:static/ui/B/B.js");
 
       console.log('here');
       #end
     #end
 
-    #body
+    #body()
       #require("home:static/index/index.css")
     #end
   #end
@@ -146,18 +146,18 @@ Velocity集成解决方案设计文档
 
  ```velocity
   #html("home:static/lib/mod.js")
-    #head
+    #head()
     <meta charset="utf-8"/>
 
       ## 通过script插件收集加载组件化JS代码
-      #script
+      #script()
       require.async("home:static/ui/B/B.js");
 
       console.log('here');
       #end
     #end
 
-    #body
+    #body()
       #require("home:static/index/index.css")
       #widget("home:widget/A/A.tpl")
     #end
@@ -171,11 +171,11 @@ Velocity集成解决方案设计文档
 
  ```velocity
   #html("home:static/lib/mod.js")
-    #head
+    #head()
     <meta charset="utf-8"/>
     #end
 
-    #body
+    #body()
         #uri("home:static/css/bootstrap.css")
     #end
   #end
@@ -183,19 +183,58 @@ Velocity集成解决方案设计文档
 
 ## layout机制
 
-fis-plus因为是使用smarty，模板引擎支持模板继承。所以可以创建一个公用的layout.tpl，其他页面tpl直接扩展layout.tpl。
+提供类似 smarty 的模板集成机制
 
-velocity不支持此功能。目前采用的方案暂定为。将所有layout放到layout目录，page中可以通过`#set( $layout="print.vm")`来指定layout。
-目前只支持内容区填充，不支持block区域填充。
+1. layout.vm
 
-```
-├── layout
-│   ├── default.vm
-│   └── print.vm
-├── page
-│   ├── index.vm
-└   └── detail.vm
-```
+  ```velocity
+  <!DOCTYPE html>
+    #html("example:static/js/mod.js")
+
+    #head()
+      <meta charset="utf-8"/>
+      <meta content="" name="description">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Demo</title>
+      #require("example:static/css/bootstrap.css")
+      #require("example:static/css/bootstrap-theme.css")
+      #require("example:static/js/jquery-1.10.2.js")
+      #require("example:static/js/bootstrap.js")
+    #end ## end head
+
+  #body()
+  <div id="wrapper">
+    #block("body_content")
+        This is body.
+    #end
+  </div>
+  #end ## end body
+
+  #require("example:page/layout.vm")
+  #end ## end html
+  ```
+2. index.vm
+
+  ```velocity
+  #extends("layout.vm")
+
+  #block("body_content")
+  <h1>Hello Demo</h1>
+
+      #widget("example:widget/header/header.vm")
+
+      #script()
+      // var widgetA = require("example:widget/widgetA/widgetA.js");
+
+      require.async("example:widget/widgetB/widgetB.js", function(api) {
+      api.sayHelloWorld();
+      });
+      #end ## end script
+  #end ## end block
+
+  #require("example:page/index.vm")
+  #end
+  ```
 
 ## 数据源
 page/xxx.vm 的数据源通过test/page/xxx.(json|jsp)提供。
