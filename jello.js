@@ -1,6 +1,9 @@
 var fis = module.exports = require('fis');
 
-fis.cli.name = 'fis-velocity';
+// 让 jello 打头的先加载。
+fis.require.prefixes.unshift('jello');
+
+fis.cli.name = 'jello';
 fis.cli.info = fis.util.readJSON(__dirname + '/package.json');
 
 fis.config.merge({

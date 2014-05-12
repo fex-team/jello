@@ -32,6 +32,7 @@
     "fis-postprocessor-velocity-require-async": "https://codeload.github.com/lily-zhangying/fis-postprocessor-velocity-require-async/legacy.tar.gz/master",
     "fis-parser-sass": "~0.1.1",
     "fis-postprocessor-jswrapper": "0.0.8",
-    "fis-optimizer-html-compress": "0.0.7"
+    "fis-optimizer-html-compress": "0.0.7",
+    "jello-command-server": "https://codeload.github.com/2betop/jello-command-server/legacy.tar.gz/master"
   }
 }
