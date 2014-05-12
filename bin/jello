@@ -9,6 +9,6 @@
 
 // if (r)  r.start();
 
-require('../fis-velocity.js').cli.run( process.argv );
+require('../jello.js').cli.run( process.argv );
 
 // if (r) r.end();
