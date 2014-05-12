@@ -1,4 +1,4 @@
-fis-velocity
+jello
 ============
 
 Front End Integrated Solution for J2EE Velocity.
@@ -8,7 +8,7 @@ Front End Integrated Solution for J2EE Velocity.
 1. 安装 fis-velocity
 
     ```bash
-    npm install -g https://codeload.github.com/2betop/fis-velocity/legacy.tar.gz/master
+    npm install -g https://codeload.github.com/fis-dev/jello/legacy.tar.gz/master
     ```
 
 2. 下载 [velocity web 应用目录](https://github.com/2betop/fis-velocity-tools/releases) 包。
