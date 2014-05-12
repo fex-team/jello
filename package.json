@@ -2,10 +2,10 @@
   "name": "fis-velocity",
   "version": "0.0.1",
   "description": "Front End Integrated Solution for J2EE Velocity.",
-  "main": "fis-velocity.js",
+  "main": "jello.js",
   "bin": {
-    "fis-velocity": "bin/fis-velocity",
-    "jello": "bin/fis-velocity"
+    "fis-velocity": "bin/jello",
+    "jello": "bin/jello"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
