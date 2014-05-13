@@ -10,9 +10,6 @@ fis.config.merge({
     statics: '/static',
 
     server: {
-        rewrite: true,
-        libs: 'velocity',
-
         clean: {
             exclude: "WEB-INF**"
         }
@@ -28,12 +25,12 @@ fis.config.merge({
         },
 
         preprocessor: {
-            vm: 'extVelocity'
+            vm: 'extLang'
         },
 
         postprocessor: {
-            vm: 'velocity-require-async',
-            js: 'jswrapper, velocity-require-async'
+            vm: 'require-async',
+            js: 'jswrapper, require-async'
         },
 
         optimizer : {

@@ -28,11 +28,11 @@
     "fis": "~1.7.8",
     "fis-parser-po": "0.0.1",
     "fis-parser-less": "0.0.9",
-    "fis-preprocessor-extVelocity": "https://codeload.github.com/lily-zhangying/fis-preprocessor-extVelocity/legacy.tar.gz/master",
-    "fis-postprocessor-velocity-require-async": "https://codeload.github.com/lily-zhangying/fis-postprocessor-velocity-require-async/legacy.tar.gz/master",
-    "fis-parser-sass": "~0.1.1",
+    "jello-preprocessor-extlang": "0.0.1",
+    "jello-postprocessor-require-async": "0.0.0",
+    "fis-parser-sass": "0.1.1",
     "fis-postprocessor-jswrapper": "0.0.8",
     "fis-optimizer-html-compress": "0.0.7",
-    "jello-command-server": "https://codeload.github.com/2betop/jello-command-server/legacy.tar.gz/master"
+    "jello-command-server": "0.0.1"
   }
 }
