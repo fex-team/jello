@@ -1,4 +1,4 @@
-##jello
+##jello ['dʒeləu]
 > 服务端为JAVA + Velocity 的前端集成解决方案。发音为：['dʒeləu]
 
 ##features
