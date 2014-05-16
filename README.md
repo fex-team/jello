@@ -1,7 +1,7 @@
-##介绍
-**jello** : 服务端为JAVA + Velocity 的前端集成解决方案。发音为：['dʒeləu]
+##jello
+> 服务端为JAVA + Velocity 的前端集成解决方案。发音为：['dʒeləu]
 
-##功能概述
+##features
 
 * 扩展[fis](https://github.com/fex-team/fis)，实现服务端为JAVA + Velocity 的前端集成解决方案。
 * 内置tomcat服务器，完美支持java+velocity后端环境
