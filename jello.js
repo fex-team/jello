@@ -15,9 +15,9 @@ fis.config.merge({
         }
     },
 
-    modules : {
+    modules: {
 
-        parser : {
+        parser: {
             less: 'less',
             sass: 'sass',
             scss: 'sass',
@@ -33,37 +33,39 @@ fis.config.merge({
             js: 'jswrapper, require-async'
         },
 
-        optimizer : {
-            vm : 'html-compress'
+        optimizer: {
+            vm: 'html-compress'
         }
     },
 
-    roadmap : {
-        ext : {
-            less : 'css',
-            tmpl : 'js',
-            po   : 'json'
+    roadmap: {
+        ext: {
+            less: 'css',
+            sass: 'css',
+            scss: 'css',
+            tmpl: 'js',
+            po: 'json'
         },
 
-        path : [
+        path: [
 
             {
-                reg : /^\/widget\/(.*\.vm)$/i,
-                isMod : true,
-                url : '${namespace}/widget/$1',
-                release : '/templates/${namespace}/widget/$1'
-            },
-
-            {
-                reg : /^\/widget\/(.*\.(js|css))$/i,
-                isMod : true,
-                release : '${statics}/${namespace}/widget/$1'
-            },
-
-            {
-                reg : /^\/page\/(.+\.vm)$/i,
+                reg: /^\/widget\/(.*\.vm)$/i,
                 isMod: true,
-                release : '/templates/${namespace}/page/$1',
+                url: '${namespace}/widget/$1',
+                release: '/templates/${namespace}/widget/$1'
+            },
+
+            {
+                reg: /^\/widget\/(.*\.(js|css))$/i,
+                isMod: true,
+                release: '${statics}/${namespace}/widget/$1'
+            },
+
+            {
+                reg: /^\/page\/(.+\.vm)$/i,
+                isMod: true,
+                release: '/templates/${namespace}/page/$1',
                 extras: {
                     isPage: true
                 }
@@ -75,9 +77,19 @@ fis.config.merge({
             },
 
             {
+                reg: /^\/(WEB-INF)\/(.*)/i,
+                release: 'WEB-INF/$2'
+            },
+
+            {
                 reg: /^\/(config|test)\/(.*)/i,
                 isMod: false,
                 release: '/$1/${namespace}/$2'
+            },
+
+            {
+                reg: 'server.conf',
+                release: '/WEB-INF/server.conf'
             },
 
             {
@@ -86,8 +98,8 @@ fis.config.merge({
             },
 
             {
-                reg : '${namespace}-map.json',
-                release : '/WEB-INF/config/${namespace}-map.json'
+                reg: '${namespace}-map.json',
+                release: '/WEB-INF/config/${namespace}-map.json'
             },
 
             {
@@ -97,8 +109,8 @@ fis.config.merge({
         ]
     },
 
-    settings : {
-        postprocessor : {
+    settings: {
+        postprocessor: {
             jswrapper: {
                 type: 'amd'
             }
