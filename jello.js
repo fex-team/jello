@@ -11,7 +11,7 @@ fis.config.merge({
 
     server: {
         clean: {
-            exclude: "WEB-INF/lib/**,WEB-INF/web.xml,WEB-INF/velocity.properties"
+            exclude: "WEB-INF/lib/**,WEB-INF/web.xml,WEB-INF/velocity.properties,index.vm"
         }
     },
 
