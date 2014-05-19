@@ -21,6 +21,7 @@ fis.config.merge({
             less: 'less',
             sass: 'sass',
             scss: 'sass',
+            tmpl: 'bdtmpl',
             po: 'po'
         },
 
@@ -48,6 +49,11 @@ fis.config.merge({
         },
 
         path: [
+
+            {
+                reg: /\/lang\/([^\/]+)\.po/i,
+                release: '/WEB-INF/config/lang/${namespace}.$1.po'
+            },
 
             {
                 reg: /^\/widget\/(.*\.vm)$/i,

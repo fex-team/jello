@@ -31,6 +31,7 @@
     "jello-preprocessor-extlang": "0.0.1",
     "jello-postprocessor-require-async": "0.0.0",
     "fis-parser-sass": "0.1.1",
+    "fis-parser-bdtmpl": "0.0.3",
     "fis-postprocessor-jswrapper": "0.0.8",
     "fis-optimizer-html-compress": "0.0.7",
     "jello-command-server": "0.0.1"
