@@ -14,6 +14,13 @@ jello
 
 使用此机制可以让前端开发流程与后端开发完全分离，后端开发人员也只需关心渲染哪个模板文件和添加对应的模板数据。
 
+## 自动性能优化
+
+我们基于 [velocity](http://velocity.apache.org) 开发了些扩展标签 (directive)，如：html、head、body、script、style、widget...
+如果你采用我们提供的标签 (directive) 组织代码，我们可以保证所有的 css 内容集中在头部输出，所有的 js 集中在底部输出，以达到一个性能优化的效果。
+
+另外结合自动打包配置，可以让多个 js/css 资源合并成一个文件，更大程度的优化性能。
+
 ## 模板继承机制
 扩展 velocity 实现类 smarty 的模板继承功能，让模板能够得到更充分的复用。
 
@@ -21,13 +28,6 @@ jello
 
 ## 模块化开发
 提供 html、css、js 模块化机制，包括组件化与 js amd 加载机制，让内容更好的拆分与复用。
-
-## 自动性能优化
-
-我们基于 [velocity](http://velocity.apache.org) 开发了些扩展标签 (directive)，如：html、head、body、script、style、widget...
-如果你采用我们提供的标签 (directive) 组织代码，我们可以保证所有的 css 内容集中在头部输出，所有的 js 集中在底部输出，以达到一个性能优化的效果。
-
-另外结合自动打包配置，可以让多个 js/css 资源合并成一个文件，更大程度的优化性能。
 
 ## 简化环境依赖
 
