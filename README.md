@@ -26,10 +26,11 @@ jello
 我们基于 [velocity](http://velocity.apache.org) 开发了些扩展标签 (directive)，如：html、head、body、script、style、widget...
 如果你采用我们提供的标签 (directive) 组织代码，我们可以保证所有的 css 内容集中在头部输出，所有的 js 集中在底部输出，以达到一个性能优化的效果。
 
+另外结合自动打包配置，可以让多个 js/css 资源合并成一个文件，更大程度的优化性能。
 
 ## 简化环境依赖
 
-内嵌 j2ee 开发服务器，你无需再折腾 j2ee 环境搭建。
+内嵌 j2ee 开发服务器，你无需再折腾 j2ee 环境搭建。直接通过 `jello server start` 就能开起服务，预览页面。
 
 ## 如何使用
 
