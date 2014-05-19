@@ -20,6 +20,7 @@ jello
 更多细节查看[模板继承](#模板继承)。
 
 ## 模块化开发
+提供 html、css、js 模块化机制，包括组件化与 js amd 加载机制，让内容更好的拆分与复用。
 
 ## 自动性能优化
 
@@ -34,7 +35,7 @@ jello
 
 ## 如何使用
 
-## 安装
+### 安装
 * 安装 [nodejs&npm](http://nodejs.org/)
 * 安装 [java](http://java.com/zh_CN/)
 * 安装jello & lights
@@ -45,7 +46,7 @@ jello
     jello -v
    ```
 
-##快速上手
+### 快速上手
 * 下载 [jello-demo](http://lightjs.duapp.com/)
 
     ```bash
@@ -60,7 +61,7 @@ jello
     ```
 * 预览： localhost:8080/example/page/index
 
-## jello 命令
+### jello 命令
 > 三条命令满足所有开发需求
 
 ```bash
@@ -83,31 +84,38 @@ jello
 
 * 具体命令使用请参考 [fis-plus](http://fis.baidu.com/)
 
-##插件实现
-
-jello扩展以下 **html**,**head**,**body**,**script**,**style**,**require**,**uri**, **widget**插件，实现组件化以及 [静态资源管理系统](https://github.com/fex-team/fis/wiki/%E5%9F%BA%E4%BA%8Emap.json%E7%9A%84%E5%89%8D%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%8C%87%E5%AF%BC)。
-
-需要创建以下几种`directives`。widget用来实现模块化。script、style、require、widget等用来收集js/css内容，通过head/body来控制js/css输出位置。
+## 插件说明
+基于 velocity 扩展了以下标签 (directive)。
 
 ### **html**
 
   代替`<html>`标签，设置页面运行的前端框架，以及控制整体页面输出。
 
-  语法: `#html ( [$framework[, $attrs]] )body #end`
+  语法: `#html([$framework[, $attrs]])body #end`
 
   ```velocity
 
-  #html( "fis-site:static/js/mod.js" )
+  #html("fis-site:static/js/mod.js", "lang", "zh")
   ...
   body content.
   ...
   #end
   ```
+
+  **输出**
+
+  ```html
+  <html lang="zh">
+  ...
+  body content
+  ...
+  </html>
+  ```
 ### **head**
 
   代替`<head>`标签，控制CSS资源加载输出。
 
-  语法: `#html([$attrs]) body #end`
+  语法: `#head([$attrs]) body #end`
 
   ```velocity
   #head()
@@ -155,7 +163,6 @@ jello扩展以下 **html**,**head**,**body**,**script**,**style**,**require**,**
     #end
   #end
   ```
-* 注意：script标签暂时不支持内部有#end标签嵌套
 
 ### **style**
 
@@ -182,7 +189,6 @@ jello扩展以下 **html**,**head**,**body**,**script**,**style**,**require**,**
     #end
   #end
   ```
-* 注意：style标签暂时不支持内部有#end标签嵌套
 
 ### **require**
 
@@ -251,9 +257,9 @@ jello扩展以下 **html**,**head**,**body**,**script**,**style**,**require**,**
   #end
   ```
 
-## 模板继承机制(layout)
+## 模板继承(layout)
 
-提供类似 smarty 的模板集成机制
+提供类似 smarty 的模板集成机制, 被集成的模板中的所有 block 标签都可以被扩展。
 
 1. layout.vm
 
@@ -306,10 +312,10 @@ jello扩展以下 **html**,**head**,**body**,**script**,**style**,**require**,**
   #end
   ```
 
-##配置
+## 配置
 参考[fis配置](http://fis.baidu.com/)
 
-##更多资料
+## 更多资料
 
 * [fis](https://github.com/fex-team/fis)
 * [fis-plus](https://github.com/fex-team/fis-plus)
