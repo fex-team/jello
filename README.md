@@ -88,7 +88,7 @@ jello ['dʒeləu]
 
 * 具体命令使用请参考 [fis-plus](http://fis.baidu.com/)
 
-## 模板继承
+### 模板继承
 
 提供类似 smarty 的模板集成机制, 被继承的模板中的所有 block 标签都可以被扩展。
 
@@ -145,7 +145,7 @@ jello ['dʒeləu]
 
 
 
-## 模板数据绑定
+### 模板数据绑定
 
 每个 page 目录下的模板页面都会自动绑定上 test 目录下同名的 json 数据，同时还支持添加同名 jsp 脚本动态添加。
 
@@ -181,7 +181,7 @@ jello ['dʒeləu]
   <h2>This is subtitle.</h2>
   ```
 
-## 页面模拟
+### 页面模拟
 
 通过创建 vm 文件可以创建页面，但是访问路径是固定的 ${项目名称}/page/${页面路径}，此路径与线上地址不一致怎么办？
 
@@ -203,10 +203,10 @@ rewrite ^\/somejsonfile /test/page/data.json
 
 
 
-## 插件说明
+### 插件说明
 基于 velocity 扩展了以下标签 (directive)。
 
-### **html**
+#### **html**
 
   代替`<html>`标签，设置页面运行的前端框架，以及控制整体页面输出。
 
@@ -230,7 +230,7 @@ rewrite ^\/somejsonfile /test/page/data.json
   ...
   </html>
   ```
-### **head**
+#### **head**
 
   代替`<head>`标签，控制CSS资源加载输出。
 
@@ -241,7 +241,7 @@ rewrite ^\/somejsonfile /test/page/data.json
   <meta charset="utf-8"/>
   #end
   ```
-### **body**
+#### **body**
 
   代替`<body>`标签，控制JS资源加载输出。
 
@@ -258,7 +258,7 @@ rewrite ^\/somejsonfile /test/page/data.json
     #end
   #end
   ```
-### **script**
+#### **script**
 
   代替`<script>`标签，收集使用JS组件的代码块，控制输出至页面底部。
 
@@ -283,7 +283,7 @@ rewrite ^\/somejsonfile /test/page/data.json
   #end
   ```
 
-### **style**
+#### **style**
 
   代替`<style>`标签，收集使用CSS组件的代码块，控制输出至页面头部。
 
@@ -309,7 +309,7 @@ rewrite ^\/somejsonfile /test/page/data.json
   #end
   ```
 
-### **require**
+#### **require**
 
   通过静态资源管理框架加载静态资源。
 
@@ -333,7 +333,7 @@ rewrite ^\/somejsonfile /test/page/data.json
     #end
   #end
   ```
-### **widget**
+#### **widget**
 
  调用模板组件，渲染输出模板片段。
 
@@ -358,7 +358,7 @@ rewrite ^\/somejsonfile /test/page/data.json
     #end
   #end
   ```
-### **uri**
+#### **uri**
 
   定位线上资源，允许跨模块(project)。
 
@@ -376,7 +376,7 @@ rewrite ^\/somejsonfile /test/page/data.json
   #end
   ```
 
-## 配置
+### 配置
 参考[fis配置](http://fis.baidu.com/)
 
 ## 更多资料
