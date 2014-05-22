@@ -88,6 +88,121 @@ jello ['dʒeləu]
 
 * 具体命令使用请参考 [fis-plus](http://fis.baidu.com/)
 
+## 模板继承
+
+提供类似 smarty 的模板集成机制, 被继承的模板中的所有 block 标签都可以被扩展。
+
+1. layout.vm
+
+  ```velocity
+  <!DOCTYPE html>
+    #html("example:static/js/mod.js")
+
+    #head()
+      <meta charset="utf-8"/>
+      <meta content="" name="description">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Demo</title>
+      #require("example:static/css/bootstrap.css")
+      #require("example:static/css/bootstrap-theme.css")
+      #require("example:static/js/jquery-1.10.2.js")
+      #require("example:static/js/bootstrap.js")
+    #end ## end head
+
+  #body()
+  <div id="wrapper">
+    #block("body_content")
+        This is body.
+    #end
+  </div>
+  #end ## end body
+
+  #require("example:page/layout.vm")
+  #end ## end html
+  ```
+2. index.vm
+
+  ```velocity
+  #extends("layout.vm")
+
+  #block("body_content")
+  <h1>Hello Demo</h1>
+
+      #widget("example:widget/header/header.vm")
+
+      #script()
+      // var widgetA = require("example:widget/widgetA/widgetA.js");
+
+      require.async("example:widget/widgetB/widgetB.js", function(api) {
+      api.sayHelloWorld();
+      });
+      #end ## end script
+  #end ## end block
+
+  #require("example:page/index.vm")
+  #end
+  ```
+
+
+
+## 模板数据绑定
+
+每个 page 目录下的模板页面都会自动绑定上 test 目录下同名的 json 数据，同时还支持添加同名 jsp 脚本动态添加。
+
+1. test/page/index.json
+
+  ```json
+  {
+      "title": "This will be override in index.jsp.",
+      "subtitle": "This is subtitle."
+  }
+  ```
+2. test/page/index.jsp
+
+  ```jsp
+  <%@ page import="org.apache.velocity.context.Context" %><%
+
+      Context context = (Context)request.getAttribute("context");
+
+
+      context.put("title", "Welcome to jello.");
+  %>
+  ```
+3. page/index.vm
+
+  ```velocity
+  <h1>$title</h1>
+  <h2>$subtitle</h2>
+  ```
+4. 输出结果
+
+  ```html
+  <h1>Welcome to jello.</h1>
+  <h2>This is subtitle.</h2>
+  ```
+
+## 页面模拟
+
+通过创建 vm 文件可以创建页面，但是访问路径是固定的 ${项目名称}/page/${页面路径}，此路径与线上地址不一致怎么办？
+
+可以通过添加 `server.conf` 文件，如下面的栗子，当请求 /testpage 的时候，实际上渲染的是 example/page/testpage 页面
+
+```
+rewrite ^\/testpage /example/page/testpage
+```
+
+处理 page  下的 vm 文件，还可重定向 test 的各种 json 文件和 jsp 文件。如
+
+```
+rewrite ^\/ajaxHander /test/page/ajaxHandler.jsp
+
+rewrite ^\/somejsonfile /test/page/data.json
+```
+
+`server.conf` 支持 rewrite, redirect 两种指令。
+
+
+
 ## 插件说明
 基于 velocity 扩展了以下标签 (directive)。
 
@@ -260,116 +375,6 @@ jello ['dʒeləu]
     #end
   #end
   ```
-
-## 模板继承
-
-提供类似 smarty 的模板集成机制, 被继承的模板中的所有 block 标签都可以被扩展。
-
-1. layout.vm
-
-  ```velocity
-  <!DOCTYPE html>
-    #html("example:static/js/mod.js")
-
-    #head()
-      <meta charset="utf-8"/>
-      <meta content="" name="description">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Demo</title>
-      #require("example:static/css/bootstrap.css")
-      #require("example:static/css/bootstrap-theme.css")
-      #require("example:static/js/jquery-1.10.2.js")
-      #require("example:static/js/bootstrap.js")
-    #end ## end head
-
-  #body()
-  <div id="wrapper">
-    #block("body_content")
-        This is body.
-    #end
-  </div>
-  #end ## end body
-
-  #require("example:page/layout.vm")
-  #end ## end html
-  ```
-2. index.vm
-
-  ```velocity
-  #extends("layout.vm")
-
-  #block("body_content")
-  <h1>Hello Demo</h1>
-
-      #widget("example:widget/header/header.vm")
-
-      #script()
-      // var widgetA = require("example:widget/widgetA/widgetA.js");
-
-      require.async("example:widget/widgetB/widgetB.js", function(api) {
-      api.sayHelloWorld();
-      });
-      #end ## end script
-  #end ## end block
-
-  #require("example:page/index.vm")
-  #end
-  ```
-## 模板数据绑定
-每个 page 目录下的模板页面都会自动绑定上 test 目录下同名的 json 数据，同时还支持添加同名 jsp 脚本动态添加。
-
-1. test/page/index.json
-
-  ```json
-  {
-      "title": "This will be override in index.jsp.",
-      "subtitle": "This is subtitle."
-  }
-  ```
-2. test/page/index.jsp
-
-  ```jsp
-  <%@ page import="org.apache.velocity.context.Context" %><%
-
-      Context context = (Context)request.getAttribute("context");
-
-
-      context.put("title", "Welcome to jello.");
-  %>
-  ```
-3. page/index.vm
-
-  ```velocity
-  <h1>$title</h1>
-  <h2>$subtitle</h2>
-  ```
-4. 输出结果
-
-  ```html
-  <h1>Welcome to jello.</h1>
-  <h2>This is subtitle.</h2>
-  ```
-
-## 页面模拟
-
-通过创建 vm 文件可以创建页面，但是访问路径是固定的 ${项目名称}/page/${页面路径}，此路径与线上地址不一致怎么办？
-
-可以通过添加 `server.conf` 文件，如下面的栗子，当请求 /testpage 的时候，实际上渲染的是 example/page/testpage 页面
-
-```
-rewrite ^\/testpage /example/page/testpage
-```
-
-处理 page  下的 vm 文件，还可重定向 test 的各种 json 文件和 jsp 文件。如
-
-```
-rewrite ^\/ajaxHander /test/page/ajaxHandler.jsp
-
-rewrite ^\/somejsonfile /test/page/data.json
-```
-
-`server.conf` 支持 rewrite, redirect 两种指令。
-
 
 ## 配置
 参考[fis配置](http://fis.baidu.com/)
