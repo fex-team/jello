@@ -1,33 +1,37 @@
-jello
+jello ['dʒeləu]
 ============================
 
-服务端为 JAVA + Velocity 的前端集成解决方案。发音为：['dʒeləu]
+针对服务端为 JAVA + Velocity 的前端集成解决方案。
 
-## 让前端攻城师更专注于前端
+为优化前端开发而生，提供前后端开发分离、自动性能优化、模块化开发机制等功能。
+
+## 前后端分离
 
 基于 velocity 模板引擎实现前后端分离，让前端攻城师更专注于 JS、CSS、VM(velocity 模板文件) 文件编写。
-我们提供一种简单的机制，让你轻松的预览线上效果。
+我们提供一种简单的机制，模拟线上环境，让你轻松的预览线上效果。
 
-简单的说，创建一个 vm velocity 模板文件后，基于我们的工具，你可以直接预览此模本文件的内容，
-且方便控制模板数据，在相应的目录创建一个同名 json 文件，按与后端开发人员约定好的数据格式，
+比如：创建一个 vm velocity 模板文件后，基于我们的工具，你可以直接预览此模板文件的内容，
+在相应的目录创建一个同名 json 文件，按与后端开发人员约定好的数据格式，
 在此 json 文件中添加测试数据便能自动与模板变量绑定上。
 
-使用此机制可以让前端开发流程与后端开发完全分离，后端开发人员也只需关心渲染哪个模板文件和添加对应的模板数据。
+使用此机制可以让前端开发流程与后端开发完全分离，后端开发人员只需关心渲染哪个模板文件和添加响应的模板数据。
 
 ## 自动性能优化
 
 我们基于 [velocity](http://velocity.apache.org) 开发了些扩展标签 (directive)，如：html、head、body、script、style、widget...
-如果你采用我们提供的标签 (directive) 组织代码，我们可以保证所有的 css 内容集中在头部输出，所有的 js 集中在底部输出，以达到一个性能优化的效果。
+如果你采用我们提供的标签 (directive) 组织代码，无论按什么顺序组织，我们可以保证所有 css 内容集中在头部输出，所有的 js 集中在底部输出，以达到一个性能优化的效果。
 
 另外结合自动打包配置，可以让多个 js/css 资源合并成一个文件，更大程度的优化性能。
 
 ## 模板继承机制
 扩展 velocity 实现类 smarty 的模板继承功能，让模板能够得到更充分的复用。
 
+将多个页面间相同的部分提取到一个 layout.vm 文件里面，每个页面只需填充自己独有的内容。
+
 更多细节查看[模板继承](#模板继承)。
 
 ## 模块化开发
-提供 html、css、js 模块化机制，包括组件化与 js amd 加载机制，让内容更好的拆分与复用。
+提供 html、css、js 模块化机制，包括 widget 组件化与 js amd 加载机制，让内容更好的拆分与复用。
 
 ## 简化环境依赖
 
@@ -311,6 +315,61 @@ jello
   #require("example:page/index.vm")
   #end
   ```
+## 模板数据绑定
+每个 page 目录下的模板页面都会自动绑定上 test 目录下同名的 json 数据，同时还支持添加同名 jsp 脚本动态添加。
+
+1. test/page/index.json
+
+  ```json
+  {
+      "title": "This will be override in index.jsp.",
+      "subtitle": "This is subtitle."
+  }
+  ```
+2. test/page/index.jsp
+
+  ```jsp
+  <%@ page import="org.apache.velocity.context.Context" %><%
+
+      Context context = (Context)request.getAttribute("context");
+
+
+      context.put("title", "Welcome to jello.");
+  %>
+  ```
+3. page/index.vm
+
+  ```velocity
+  <h1>$title</h1>
+  <h2>$subtitle</h2>
+  ```
+4. 输出结果
+
+  ```html
+  <h1>Welcome to jello.</h1>
+  <h2>This is subtitle.</h2>
+  ```
+
+## 页面模拟
+
+通过创建 vm 文件可以创建页面，但是访问路径是固定的 ${项目名称}/page/${页面路径}，此路径与线上地址不一致怎么办？
+
+可以通过添加 `server.conf` 文件，如下面的栗子，当请求 /testpage 的时候，实际上渲染的是 example/page/testpage 页面
+
+```
+rewrite ^\/testpage /example/page/testpage
+```
+
+处理 page  下的 vm 文件，还可重定向 test 的各种 json 文件和 jsp 文件。如
+
+```
+rewrite ^\/ajaxHander /test/page/ajaxHandler.jsp
+
+rewrite ^\/somejsonfile /test/page/data.json
+```
+
+`server.conf` 支持 rewrite, redirect 两种指令。
+
 
 ## 配置
 参考[fis配置](http://fis.baidu.com/)
