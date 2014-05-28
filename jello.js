@@ -32,10 +32,6 @@ fis.config.merge({
         postprocessor: {
             vm: 'require-async',
             js: 'jswrapper, require-async'
-        },
-
-        optimizer: {
-            vm: 'html-compress'
         }
     },
 
