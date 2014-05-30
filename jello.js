@@ -26,7 +26,7 @@ fis.config.merge({
         },
 
         preprocessor: {
-            vm: 'extLang'
+            vm: 'extlang'
         },
 
         postprocessor: {
