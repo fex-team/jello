@@ -1,6 +1,6 @@
 {
   "name": "jello",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Front End Integrated Solution for J2EE Velocity.",
   "main": "jello.js",
   "bin": {
@@ -33,6 +33,6 @@
     "fis-parser-sass": "0.1.2",
     "fis-parser-bdtmpl": "0.0.3",
     "fis-postprocessor-jswrapper": "0.0.8",
-    "jello-command-server": "0.0.7"
+    "jello-command-server": "0.0.8"
   }
 }
