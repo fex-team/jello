@@ -1,6 +1,6 @@
 {
   "name": "jello",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Front End Integrated Solution for J2EE Velocity.",
   "main": "jello.js",
   "bin": {
