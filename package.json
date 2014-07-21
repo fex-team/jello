@@ -28,8 +28,8 @@
     "fis": "~1.7.8",
     "fis-parser-po": "0.0.1",
     "fis-parser-less": "0.0.9",
-    "jello-preprocessor-extlang": "0.0.2",
-    "jello-postprocessor-require-async": "0.0.1",
+    "jello-preprocessor-extlang": "0.0.3",
+    "jello-postprocessor-require-async": "0.0.2",
     "fis-parser-bdtmpl": "0.0.3",
     "fis-postprocessor-jswrapper": "0.0.8",
     "jello-command-server": "0.0.8"
