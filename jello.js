@@ -104,6 +104,11 @@ fis.config.merge({
             },
 
             {
+                reg: 'fis.properties',
+                release: '/WEB-INF/fis.properties'
+            },
+
+            {
                 reg: /^.+$/,
                 release: '${statics}/${namespace}$&'
             }
@@ -118,3 +123,5 @@ fis.config.merge({
         }
     }
 });
+
+console.log('ee');
