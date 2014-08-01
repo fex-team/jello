@@ -123,5 +123,3 @@ fis.config.merge({
         }
     }
 });
-
-console.log('ee');
