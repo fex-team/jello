@@ -20,6 +20,7 @@ jello ['dʒeləu]
   * [页面模拟](#页面模拟)
   * [插件说明](#插件说明)
   * [配置](#配置)
+  * [后端整合](#后端整合)
   * [更多资料](#更多资料)
 
 ## 前后端分离
@@ -395,6 +396,52 @@ rewrite ^\/somejsonfile /test/page/data.json
 
 ### 配置
 参考[fis配置](http://fis.baidu.com/)
+
+### 后端整合
+
+后端一般都是使用 spring 来开发，所以这里给出 spring 集成方式，其他运行模式请查考。
+
+对于后端来说，只需关心前端输出的模板文件、静态资源和 map json文件。
+
+默认的输出路径是：
+
+* 模板文件： /templates/**.vm
+* 静态资源： /static/**
+* map json 文件：/WEB-INF/config/xxx-map.json
+
+为了让 velocity 能正常渲染模板，需要设置模板目录，以及将 fis 提供的自定义 diretives 启动。
+配置内容如下：
+
+```xml
+<bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+    <property name="resourceLoaderPath" value="/velocity 模板目录/"/>
+    <property name= "velocityProperties">
+        <props>
+            <prop key="input.encoding">utf-8</prop>
+            <prop key="output.encoding">utf-8</prop>
+            <!--启用 fis 提供的自定义 diretives 启动-->
+            <prop key="userdirective">com.baidu.fis.velocity.directive.Html, com.baidu.fis.velocity.directive.Head, com.baidu.fis.velocity.directive.Body, com.baidu.fis.velocity.directive.Require, com.baidu.fis.velocity.directive.Script, com.baidu.fis.velocity.directive.Style, com.baidu.fis.velocity.directive.Uri, com.baidu.fis.velocity.directive.Widget, com.baidu.fis.velocity.directive.Block, com.baidu.fis.velocity.directive.Extends</prop>
+        </props>
+    </property>
+</bean>
+```
+
+为了让 fis 自定义的 directive 能够正常读取 map.json 文件，需要添加一个 bean 初始化一下。
+
+```xml
+<!--初始 fis 配置-->
+<bean id="fisInit" class="com.baidu.fis.velocity.spring.FisBean" />
+```
+
+默认 map json 文件是从 /WEB-INF/config 文件夹下读取的，如果有修改存放地址，则需要添加一个 fis.properties 文件到 /WEB-INF/ 目录。
+内容如下：
+
+```ini
+# 相对与 WEB-APP 根目录。
+mapDir = /velocity/config
+```
+
+
 
 ## 更多资料
 
