@@ -446,12 +446,14 @@ fis 框架代码可以在[此下载](https://github.com/fex-team/fis-velocity-to
 
 ## fis.properties
 
-fis 中有以下默认配置项，如果需要修改，请在项目更目录下面新建 `fis.properties` 文件。此文件将被release 到 `/WEB-INF/fis.properties` 
+fis 中有以下默认配置项，如果需要修改，请在项目根目录下面新建 `fis.properties` 文件。此文件将被 release 到 `/WEB-INF/fis.properties` 
 
 ```ini
 # 本地调试才需要修改，与后端结合不需要设置。
+# 设置 velocity tpl 所在目录，目录相对于 webapp 根目录。
 velocity.path = .
 
+# map json 所在目录。
 mapDir = /WEB-INF/config
 
 encoding = UTF-8
