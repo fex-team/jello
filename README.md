@@ -21,7 +21,7 @@ jello ['dʒeləu]
   * [插件说明](#插件说明)
   * [配置](#配置)
   * [后端整合](#后端整合)
-  * [fis.properties](#fis.properties)
+  * [fis.properties](#fisproperties)
   * [更多资料](#更多资料)
 
 ## 前后端分离
