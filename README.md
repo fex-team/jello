@@ -21,6 +21,7 @@ jello ['dʒeləu]
   * [插件说明](#插件说明)
   * [配置](#配置)
   * [后端整合](#后端整合)
+  * [fis.properties](#fis.properties)
   * [更多资料](#更多资料)
 
 ## 前后端分离
@@ -175,7 +176,7 @@ jello ['dʒeləu]
       "subtitle": "This is subtitle."
   }
   ```
-2. test/page/index.jsp
+2. test/page/index.jsp **注意：**这里任何内容输出都会被屏蔽。
 
   ```jsp
   <%@ page import="org.apache.velocity.context.Context" %><%
@@ -443,6 +444,23 @@ mapDir = /velocity/config
 
 fis 框架代码可以在[此下载](https://github.com/fex-team/fis-velocity-tools/releases)。所有代码开源在 [github](https://github.com/fex-team/fis-velocity-tools) 上。
 
+## fis.properties
+
+fis 中有以下默认配置项，如果需要修改，请在项目更目录下面新建 `fis.properties` 文件。此文件将被release 到 `/WEB-INF/fis.properties` 
+
+```ini
+# 本地调试才需要修改，与后端结合不需要设置。
+velocity.path = .
+
+mapDir = /WEB-INF/config
+
+encoding = UTF-8
+
+# 是否自动输出 resouceMap，此选项跟 mod.js 有关，没有 resouceMap 异步js 无法加载。
+sourceMap = true
+```
+
+默认
 
 ## 更多资料
 
