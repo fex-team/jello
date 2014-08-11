@@ -399,7 +399,7 @@ rewrite ^\/somejsonfile /test/page/data.json
 
 ### 后端整合
 
-后端一般都是使用 spring 来开发，所以这里给出 spring 集成方式，其他运行模式请查考。
+后端一般都是使用 spring 来开发，所以这里给出 spring 集成方式，其他运行模式请参考。
 
 对于后端来说，只需关心前端输出的模板文件、静态资源和 map json文件。
 
@@ -441,6 +441,7 @@ rewrite ^\/somejsonfile /test/page/data.json
 mapDir = /velocity/config
 ```
 
+fis 框架代码可以在[此页面下载](https://github.com/fex-team/fis-velocity-tools/releases)。所有代码开源在 [github](https://github.com/fex-team/fis-velocity-tools) 上。
 
 
 ## 更多资料
