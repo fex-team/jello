@@ -441,7 +441,7 @@ rewrite ^\/somejsonfile /test/page/data.json
 mapDir = /velocity/config
 ```
 
-fis 框架代码可以在[此页面下载](https://github.com/fex-team/fis-velocity-tools/releases)。所有代码开源在 [github](https://github.com/fex-team/fis-velocity-tools) 上。
+fis 框架代码可以在[此下载](https://github.com/fex-team/fis-velocity-tools/releases)。所有代码开源在 [github](https://github.com/fex-team/fis-velocity-tools) 上。
 
 
 ## 更多资料
