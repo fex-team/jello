@@ -8,6 +8,7 @@ fis.cli.info = fis.util.readJSON(__dirname + '/package.json');
 
 fis.config.merge({
     statics: '/static',
+    templates: '/WEB-INF/views',
 
     server: {
         clean: {
@@ -54,7 +55,8 @@ fis.config.merge({
             {
                 reg: /^\/widget\/(.*\.vm)$/i,
                 isMod: true,
-                release: '/templates/${namespace}/widget/$1'
+                url: '${namespace}/widget/$1',
+                release: '${templates}/${namespace}/widget/$1'
             },
 
             {
@@ -66,7 +68,8 @@ fis.config.merge({
             {
                 reg: /^\/page\/(.+\.vm)$/i,
                 isMod: true,
-                release: '/templates/${namespace}/page/$1',
+                url: '${namespace}/page/$1',
+                release: '/${templates}/${namespace}/page/$1',
                 extras: {
                     isPage: true
                 }
@@ -94,7 +97,7 @@ fis.config.merge({
             },
 
             {
-                reg: "build.sh",
+                reg: "**.sh",
                 release: false
             },
 
