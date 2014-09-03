@@ -5,6 +5,7 @@ fis.require.prefixes.unshift('jello');
 
 fis.cli.name = 'jello';
 fis.cli.info = fis.util.readJSON(__dirname + '/package.json');
+fis.cli.help.commands = [ 'release', 'server' ];
 
 fis.config.merge({
     statics: '/static',
