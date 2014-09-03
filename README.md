@@ -400,7 +400,7 @@ rewrite ^\/somejsonfile /test/page/data.json
 
 ### 后端整合
 
-后端一般都是使用 spring 来开发，所以这里给出 spring 集成方式，其他运行模式请参考。
+后端一般都是使用 spring 来开发，所以这里给出 spring 集成方式，其他运行模式请参考。关于 spring 整合的 [demo 可以看这里](https://github.com/fex-team/jello-spring-example)。
 
 对于后端来说，只需关心前端输出的模板文件、静态资源和 map json文件。
 
