@@ -56,7 +56,7 @@ fis.config.merge({
             {
                 reg: /^\/widget\/(.*\.vm)$/i,
                 isMod: true,
-                url: '${namespace}/widget/$1',
+                url: '/${namespace}/widget/$1',
                 release: '${templates}/${namespace}/widget/$1'
             },
 
@@ -69,7 +69,7 @@ fis.config.merge({
             {
                 reg: /^\/page\/(.+\.vm)$/i,
                 isMod: true,
-                url: '${namespace}/page/$1',
+                url: '/${namespace}/page/$1',
                 release: '/${templates}/${namespace}/page/$1',
                 extras: {
                     isPage: true
