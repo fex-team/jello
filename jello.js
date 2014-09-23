@@ -104,6 +104,11 @@ fis.config.merge({
             },
 
             {
+                reg: 'map.json',
+                release: '/WEB-INF/config/map.json'
+            },
+
+            {
                 reg: 'fis.properties',
                 release: '/WEB-INF/fis.properties'
             },
