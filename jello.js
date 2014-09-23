@@ -8,6 +8,7 @@ fis.cli.info = fis.util.readJSON(__dirname + '/package.json');
 fis.cli.help.commands = [ 'release', 'server' ];
 
 fis.config.merge({
+    namespace: '',
     statics: '/static',
     templates: '/WEB-INF/views',
 
@@ -47,11 +48,6 @@ fis.config.merge({
         },
 
         path: [
-
-            {
-                reg: /\/lang\/([^\/]+)\.po/i,
-                release: '/WEB-INF/config/lang/${namespace}.$1.po'
-            },
 
             {
                 reg: /^\/widget\/(.*\.vm)$/i,
@@ -94,7 +90,7 @@ fis.config.merge({
 
             {
                 reg: 'server.conf',
-                release: '/WEB-INF/server.conf'
+                release: '/WEB-INF/server${namespace}.conf'
             },
 
             {
