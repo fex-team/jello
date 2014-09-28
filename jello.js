@@ -114,6 +114,11 @@ fis.config.merge({
             },
 
             {
+                reg: 'VM_global_library.vm',
+                release: '/${templates}/VM_global_library.vm'
+            },
+
+            {
                 reg: /^.+$/,
                 release: '${statics}/${namespace}$&'
             }
