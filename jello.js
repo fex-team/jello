@@ -35,7 +35,9 @@ fis.config.merge({
         postprocessor: {
             vm: 'require-async',
             js: 'jswrapper, require-async'
-        }
+        },
+
+        prepackager: 'derived'
     },
 
     roadmap: {
