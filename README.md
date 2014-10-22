@@ -82,7 +82,7 @@ jello ['dʒeləu]
      jello release
      jello server start
     ```
-* 预览： localhost:8080/example/page/index
+* 预览： localhost:8080
 
 ### jello 命令
 > 三条命令满足所有开发需求
