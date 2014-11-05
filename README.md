@@ -202,7 +202,7 @@ jello ['dʒeləu]
 
 ### 页面模拟
 
-通过创建 vm 文件可以创建页面，但是访问路径是固定的 ${项目名称}/page/${页面路径}，此路径与线上地址不一致怎么办？
+通过创建 vm 文件可以创建页面，但是访问路径是固定的 ${namespace}/page/${页面路径}，此路径与线上地址不一致怎么办？
 
 可以通过添加 `server.conf` 文件，如下面的栗子，当请求 /testpage 的时候，实际上渲染的是 example/page/testpage 页面
 
@@ -446,7 +446,7 @@ fis 框架代码可以在[此下载](https://github.com/fex-team/fis-velocity-to
 
 ## fis.properties
 
-fis 中有以下默认配置项，如果需要修改，请在项目根目录下面新建 `fis.properties` 文件。此文件将被 release 到 `/WEB-INF/fis.properties` 
+fis 中有以下默认配置项，如果需要修改，请在项目根目录下面新建 `fis.properties` 文件。此文件将被 release 到 `/WEB-INF/fis.properties`
 
 ```ini
 # 本地调试才需要修改，与后端结合不需要设置。
