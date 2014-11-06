@@ -70,7 +70,7 @@ jello ['dʒeləu]
    ```
 
 ### 快速上手
-* 下载 [jello-demo](http://lightjs.duapp.com/),[jello-demo in Github](https://github.com/2betop/jello-demo)
+* 通过 lights 下载 [jello-demo](http://lightjs.duapp.com/)，或者通过 git clone [jello-demo](https://github.com/2betop/jello-demo).
 
     ```bash
      lights install jello-demo
