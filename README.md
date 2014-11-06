@@ -70,11 +70,18 @@ jello ['dʒeləu]
    ```
 
 ### 快速上手
-* 下载 [jello-demo](http://lightjs.duapp.com/)
+* 通过 lights 下载 [jello-demo](http://lightjs.duapp.com/)，或者通过 git clone [jello-demo](https://github.com/2betop/jello-demo).
 
     ```bash
      lights install jello-demo
     ```
+* 安装插件
+    
+   ```bash
+   npm install -g fis-parser-marked
+   npm install -g fis-parser-utc
+   npm install -g fis-parser-sass
+   ```
 * 编译预览
 
     ```bash
