@@ -37,7 +37,9 @@ fis.config.merge({
             js: 'jswrapper, require-async'
         },
 
-        prepackager: 'derived'
+        prepackager: 'derived',
+
+        packager: 'depscombine'
     },
 
     roadmap: {
