@@ -90,6 +90,7 @@ jello ['dʒeləu]
      jello server start
     ```
 * 预览： localhost:8080
+* 在线 [demo](http://106.186.23.103:8080/).
 
 ### jello 命令
 > 三条命令满足所有开发需求
