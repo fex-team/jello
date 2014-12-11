@@ -29,7 +29,10 @@ fis.config.merge({
         },
 
         preprocessor: {
-            vm: 'extlang'
+            vm: 'extlang,components',
+            html: 'components',
+            js: 'components',
+            css: 'components'
         },
 
         postprocessor: {
@@ -52,6 +55,12 @@ fis.config.merge({
         },
 
         path: [
+
+            {
+                reg: /^\/components\/(.*\.(js|css))$/i,
+                isMod: true,
+                release: '${statics}/${namespace}/components/$1'
+            },
 
             {
                 reg: /^\/widget\/(.*\.(?:vm|jsp|html))$/i,
