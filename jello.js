@@ -72,7 +72,7 @@ fis.release = (function(origin) {
         var paths = fis.config.get('roadmap.path', []);
         var defaultPaths = fis.config.get('namespace') ? require('./roadmap/with_ns.js') : require('./roadmap/default.js');
 
-        paths.unshift.apply(paths, defaultPaths);
+        paths.push.apply(paths, defaultPaths);
 
         fis.release = origin;
         return origin.apply(this, arguments);
