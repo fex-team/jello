@@ -14,7 +14,7 @@ fis.config.merge({
 
     server: {
         clean: {
-            exclude: "WEB-INF/lib/**,WEB-INF/web.xml,WEB-INF/tools.xml,WEB-INF/velocity.properties,WEB-INF/views/index.vm"
+            exclude: "WEB-INF/lib/**,WEB-INF/web.xml,WEB-INF/tools.xml,WEB-INF/velocity.properties,WEB-INF/views/index.vm,WEB-INF/fis.tld"
         }
     },
 
@@ -30,6 +30,7 @@ fis.config.merge({
 
         preprocessor: {
             vm: 'components, extlang',
+            jsp: 'components, extlang',
             html: 'components',
             js: 'components',
             css: 'components'
@@ -37,6 +38,7 @@ fis.config.merge({
 
         postprocessor: {
             vm: 'require-async',
+            jsp: 'require-async',
             js: 'jswrapper, require-async'
         },
 
