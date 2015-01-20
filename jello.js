@@ -65,6 +65,10 @@ fis.config.merge({
                 type: 'amd'
             }
         }
+    },
+
+    component: {
+        skipRoadmapCheck: true
     }
 });
 

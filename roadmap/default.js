@@ -37,6 +37,15 @@ module.exports = [
         release: '${statics}/widget/$1'
     },
 
+    // 文件名以 _ 下划线打头的，最终都不 release
+    // 也不优化，因为这类文件都只会被内嵌的。
+    {
+        reg: '**/_*.*',
+        release: false,
+        useAMD: false,
+        useOptimizer: false
+    },
+
     {
         reg: /^\/(static)\/(.*)/i,
         release: '${statics}/$2'
@@ -70,11 +79,6 @@ module.exports = [
     },
 
     {
-        reg: 'map.json',
-        release: '/WEB-INF/config/map.json'
-    },
-
-    {
         reg: 'fis.properties',
         release: '/WEB-INF/fis.properties'
     },
@@ -82,15 +86,6 @@ module.exports = [
     {
         reg: 'VM_global_library.vm',
         release: '/${templates}/VM_global_library.vm'
-    },
-
-    // 文件名以 _ 下划线打头的，最终都不 release
-    // 也不优化，因为这类文件都只会被内嵌的。
-    {
-        reg: '**/_*.*',
-        release: false,
-        useAMD: false,
-        useOptimizer: false
     },
 
     {

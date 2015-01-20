@@ -37,6 +37,15 @@ module.exports = [
         release: '${statics}/${namespace}/widget/$1'
     },
 
+    // 文件名以 _ 下划线打头的，最终都不 release
+    // 也不优化，因为这类文件都只会被内嵌的。
+    {
+        reg: '**/_*.*',
+        release: false,
+        useAMD: false,
+        useOptimizer: false
+    },
+
     {
         reg: /^\/(static)\/(.*)/i,
         release: '${statics}/${namespace}/$2'
@@ -82,15 +91,6 @@ module.exports = [
     {
         reg: 'VM_global_library.vm',
         release: '/${templates}/VM_global_library.vm'
-    },
-
-    // 文件名以 _ 下划线打头的，最终都不 release
-    // 也不优化，因为这类文件都只会被内嵌的。
-    {
-        reg: '**/_*.*',
-        release: false,
-        useAMD: false,
-        useOptimizer: false
     },
 
     {
