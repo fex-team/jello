@@ -458,8 +458,8 @@ fis 中有以下默认配置项，如果需要修改，请在项目根目录下�
 
 ```ini
 # 本地调试才需要修改，与后端结合不需要设置。
-# 设置 velocity tpl 所在目录，目录相对于 webapp 根目录。
-velocity.path = .
+# 设置 velelocity 模板存放目录，目录相对于 webapp 根目录。
+views.path = /WEB-INF/views
 
 # map json 所在目录。
 mapDir = /WEB-INF/config
