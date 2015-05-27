@@ -72,16 +72,9 @@ fis.config.merge({
     }
 });
 
-// 当 fis release 的时候才填充 roadmap.path
-fis.release = (function(origin) {
-    return function() {
-        var paths = fis.config.get('roadmap.path', []);
-        var defaultPaths = fis.config.get('namespace') ? require('./roadmap/with_ns.js') : require('./roadmap/default.js');
+fis.emitter.once('fis-conf:loaded', function() {
+    var paths = fis.config.get('roadmap.path', []);
+    var defaultPaths = fis.config.get('namespace') ? require('./roadmap/with_ns.js') : require('./roadmap/default.js');
 
-        paths.push.apply(paths, defaultPaths);
-
-        fis.release = origin;
-        return origin.apply(this, arguments);
-    };
-})(fis.release);
-
+    paths.push.apply(paths, defaultPaths);
+});
