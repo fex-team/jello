@@ -1,6 +1,6 @@
 {
   "name": "jello",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Front End Integrated Solution for J2EE Velocity.",
   "main": "jello.js",
   "bin": {
@@ -33,7 +33,6 @@
     "fis-postprocessor-jswrapper": "0.0.8",
     "fis-prepackager-derived": "~0.0.2",
     "fis-preprocessor-components": "^1.0.3",
-    "jello-command-install": "^0.1.0",
     "jello-command-server": "~0.1.0",
     "jello-postprocessor-amd": "~0.1.0",
     "jello-postprocessor-require-async": "~0.1.0",
