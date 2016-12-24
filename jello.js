@@ -23,7 +23,7 @@ fis.config.merge({
         parser: {
             less: 'less',
             sass: 'sass',
-            scss: 'sass',
+            scss: 'scss',
             tmpl: 'bdtmpl',
             po: 'po'
         },
